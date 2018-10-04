@@ -1,4 +1,67 @@
 <h3>Add Place</h3>
 <div [hidden]="submitted">
+    <form #addPlaceForm="ngForm">
 
+      <div class="form-group">
+        <label for="locationName">LocationName</label>
+        <input type="text" class="form-control" id="locationName" placeholder="Place's locationName" 
+        required 
+        [(ngModel)]="place.locationName" name="locationName" #locationName="ngModel">
+        <div [hidden]="locationName.valid || locationName.pristine"
+             class="alert alert-danger">
+             LocationName is required
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label for="description">Description</label>
+        <input type="text" class="form-control" id="description" placeholder="Place's description"
+        required
+        [(ngModel)]="place.description" name="description" #description="ngModel">
+        <div [hidden]="description.valid || description.pristine"
+             class="alert alert-danger">
+             Description is required
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="latitude">Latitude</label>
+        <input type="text" class="form-control" id="latitude" placeholder="Place's description"
+        required
+        [(ngModel)]="place.latitude" name="latitude" #latitude="ngModel">
+        <div [hidden]="latitude.valid || latitude.pristine"
+             class="alert alert-danger">
+             Latitude is required
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="longitude">Longitude</label>
+        <input type="text" class="form-control" id="longitude" placeholder="Place's description"
+        required
+        [(ngModel)]="longitude.description" name="longitude" #longitude="ngModel">
+        <div [hidden]="longitude.valid || longitude.pristine"
+             class="alert alert-danger">
+             Longitude is required
+        </div>
+      </div>
+
+      <div class="btn-group btn-group-sm">
+      	<button type="button" class="btn btn-dark" (click)="goBack()">Back</button>
+      	<button type="button" class="btn btn-primary" (click)="addPlace()" [disabled]="!addPlaceForm.form.valid">Add</button>
+      </div>
+    </form>
+</div>
+
+<div [hidden]="!submitted">
+  <div class="alert alert-success alert-dismissible fade show" role="alert">
+      <strong>{{message}}</strong>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+  </div>
+	<div class="btn-group btn-group-sm">
+    	<button type="button" class="btn btn-dark" (click)="goBack()">Back</button>
+    	<button type="button" class="btn btn-success" (click)="newPlace(); addPlaceForm.reset()">Continue</button>
+    </div>
 </div>

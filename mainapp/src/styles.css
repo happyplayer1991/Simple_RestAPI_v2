@@ -1,1 +1,60 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import "~bootstrap/dist/css/bootstrap.css";
+@import "~font-awesome/css/font-awesome.css";
+
+/*
+ ======================
+  font
+ ======================
+ */
+ body {
+    /* font-family: 'Courier New', Times, serif !important; */
+    font-family: Arial,Helvetica,sans-serif !important;
+}
+
+/*
+ ======================
+  margin between buttons
+ ======================
+ */
+
+ul li, .btn-group .btn
+{
+    margin-right: 10px;
+}
+
+/*
+ ======================
+  font size in form
+ ======================
+ */
+form input, form textarea {
+    font-size: 14px !important;
+}
+
+/*
+ ======================
+  Table shows all places
+ ======================
+ */
+ table#places {
+    border-collapse: collapse;
+    width: 100%;
+ }
+
+ #places td, #places th {
+    border: 1px solid #ddd;
+    padding: 8px;
+ }
+ #places tr:nth-child(even){background-color: #f2f2f2;}
+
+ #places tr:hover {background-color: #ddd;}
+ 
+ #places th {
+     padding-top: 12px;
+     padding-bottom: 12px;
+     text-align: left;
+     background-color: #4CAF50;
+     color: white;
+ }

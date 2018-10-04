@@ -1,3 +1,30 @@
-<p>
-  place works!
-</p>
+<h5>All Places</h5>
+
+  <table id="places" class="table-bordered responsive-table">
+      <thead>
+        <tr>
+            <th scope="col" class="text-center id">ID</th>
+            <th scope="col" class="text-center">locationName</th>
+            <th scope="col" class="text-center">description</th>
+            <th scope="col" class="text-center">latitude</th>
+            <th scope="col" class="text-center">longitude</th>
+        </tr>
+      </thead>
+      <tbody id="places">
+          <tr *ngFor="let place of places ">
+            <td scope="col" class="text-center">{{place.id}}</td>
+            <td scope="col" class="text-center">{{place.locationName}}</td>
+            <td scope="col" class="text-center">{{place.description}}</td>
+            <td scope="col" class="text-center">{{place.latitude}}</td>
+            <td scope="col" class="text-center">{{place.longitude}}</td>
+
+            <td scope="col" class="text-center">
+                <a [routerLink]="['/places', place.id]">
+                  <span class="badge badge-success">Edit</span>
+                </a>
+            </td>
+          </tr>
+      </tbody>
+  </table>
+
+
