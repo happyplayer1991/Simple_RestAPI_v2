@@ -11,7 +11,6 @@ var session = require('express-session');
 var mongoose = require('mongoose');
 var chalk = require('chalk');
 
-var routes = require('./route/place.route');
 
 // *** config middleware *** //
 app.use(bodyParser.json());
@@ -30,7 +29,7 @@ app.use(session({
 }));
 
 // *** main routes *** //
-app.use('/', routes);
+require('./route/place.route')(app);
 
 // *** connect mongoose *** //
 mongoose.connect(config.DB.uri, config.DB.options, (err) => {

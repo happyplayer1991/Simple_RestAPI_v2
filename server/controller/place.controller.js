@@ -20,7 +20,7 @@ exports.create = (req, res) => {
  
 // *** Return List of Places *** //
 exports.findAll = (req, res) => {
-    Place.findAll().then(places => {
+    Place.find({}).then(places => {
         // Send all places to Client
         res.json(places.sort(function(c1, c2) {return c1.id - c2.id}));
     }).catch(err => {
