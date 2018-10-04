@@ -24,7 +24,7 @@
 
       <div class="form-group">
         <label for="latitude">Latitude</label>
-        <input type="text" class="form-control" id="latitude" placeholder="Place's description"
+        <input type="text" class="form-control" id="latitude" placeholder="Place's Latitude"
         required
         [(ngModel)]="place.latitude" name="latitude" #latitude="ngModel">
         <div [hidden]="latitude.valid || latitude.pristine"
@@ -35,7 +35,7 @@
 
       <div class="form-group">
         <label for="longitude">Longitude</label>
-        <input type="text" class="form-control" id="longitude" placeholder="Place's description"
+        <input type="text" class="form-control" id="longitude" placeholder="Place's Longitude"
         required
         [(ngModel)]="longitude.description" name="longitude" #longitude="ngModel">
         <div [hidden]="longitude.valid || longitude.pristine"
