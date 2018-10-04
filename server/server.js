@@ -24,8 +24,7 @@ app.use(session({
 }));
 
 
- 
-// Create a Server
+// *** create server *** //
 var server = app.listen(8080, function () {
  
     let host = server.address().address
