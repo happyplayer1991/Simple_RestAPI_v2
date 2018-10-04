@@ -11,7 +11,7 @@
 
 
 # Explain about my project
-a) Keep Track of your time. How long did it take you?
-b) Did you enjoy this assignment? Why or Why not?
-c) What would you do to improve this small application?
-d) How colud our simple API be turned into something cool?
+1. Keep Track of your time. How long did it take you?
+2. Did you enjoy this assignment? Why or Why not?
+3. What would you do to improve this small application?
+4. How colud our simple API be turned into something cool?
