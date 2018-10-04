@@ -1,3 +1,4 @@
+'use strict';
 
 const Place = require('../model/place.model');
 

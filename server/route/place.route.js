@@ -1,3 +1,5 @@
+'use strict';
+
 const places = require('../controller/place.controller.js');
 
 module.exports = function(app) {
