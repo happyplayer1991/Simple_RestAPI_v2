@@ -21,8 +21,8 @@ export class PlaceService {
     return this.http.get<Place[]>(this.placesUrl)
   }
 
-  getPlace(id: number): Observable<Place> {
-    const url = `${this.placesUrl}/${id}`;
+  getPlace(location: string): Observable<Place> {
+    const url = `${this.placesUrl}/${location}`;
     return this.http.get<Place>(url);
   }
 

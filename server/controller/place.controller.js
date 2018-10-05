@@ -15,9 +15,8 @@ exports.create = (req, res) => {
  
 // *** Return List of Places *** //
 exports.findAll = (req, res) => {
-    Place.find({}).then(places => {
-        // Send all places to Client
-        res.json(places.sort(function(c1, c2) {return c1.id - c2.id}));
+    Place.find().then(places => {
+        res.json(places);
     }).catch(err => {
         console.log(err);
         res.status(500).json({msg: "error", details: err});
@@ -25,8 +24,9 @@ exports.findAll = (req, res) => {
 };
 
 // *** Return Sepcified Location info or Error if not found *** //
-exports.findById = (req, res) => {	
-    Place.findById(req.params.id).then(place => {
+exports.findByLocation = (req, res) => {
+    var locationName = req.params.location;
+    Place.findOne({locationName: locationName}).then(place => {
         res.json(place);
     }).catch(err => {
         console.log(err);
@@ -36,13 +36,14 @@ exports.findById = (req, res) => {
  
 // *** Update the record/item *** //
 exports.update = (req, res) => {
-	Place.update(req.body, 
-			{ where: {id: req.body.id} }).then(() => {
-				res.status(200).json( { mgs: "Updated Successfully -> Place Id = " + id } );
-			}).catch(err => {
-				console.log(err);
-				res.status(500).json({msg: "error", details: err});
-			});
+    var _id = req.body._id;
+    console.log( req.body);
+    Place.updateOne({_id: _id}, { $set: req.body }).then(result => {
+        res.json({msg: "Updated Successfully"});
+    }).catch(err => {
+        console.log(err);
+        res.status(500).json({msg: "error", details: err});
+    });
 };
 
 // *** Delete a location *** //

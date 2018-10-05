@@ -11,7 +11,7 @@ module.exports = function(app) {
     app.get('/api/places', places.findAll);
 
     // *** Return Sepcified Location info or Error if not found *** //
-    app.get('/api/places/:id', places.findById);
+    app.get('/api/places/:location', places.findByLocation);
  
     // *** Update the record/item *** //
     app.put('/api/places', places.update);

@@ -22,9 +22,11 @@ export class PlaceEditComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    const id = +this.route.snapshot.paramMap.get('id');
-    this.placeService.getPlace(id)
-      .subscribe(place => this.place = place);
+    const locationName = this.route.snapshot.paramMap.get('location');
+    this.placeService.getPlace(locationName)
+      .subscribe(place => {
+        this.place = place;
+      });
   }
 
   update(): void {
@@ -35,7 +37,7 @@ export class PlaceEditComponent implements OnInit {
 
   delete(): void {
     this.submitted = true;
-    this.placeService.deletePlace(this.place.id)
+    this.placeService.deletePlace(this.place.locationName)
         .subscribe(result => this.message = "Place Deleted Successfully!");
   }
 

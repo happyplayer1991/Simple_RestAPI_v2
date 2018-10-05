@@ -14,7 +14,7 @@ const routes: Routes = [
     component: PlaceAddComponent 
   },
   { 
-    path: 'places/:id', 
+    path: 'places/:location', 
     component: PlaceEditComponent 
   },
   { 

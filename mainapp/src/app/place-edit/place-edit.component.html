@@ -1,9 +1,9 @@
-<h4>Edit Place</h4>
+<h5>Edit Place</h5>
 <div [hidden]="submitted">
     <form #editPlaceForm="ngForm">
       <div class="form-group">
         <label for="locationName">LocationName</label>
-        <input type="text" class="form-control" id="locationName" 
+        <input type="text" class="form-control" id="locationName" placeholder="LocationName"
         required 
         [(ngModel)]="place.locationName" name="locationName" #locationName="ngModel">
         <div [hidden]="locationName.valid || locationName.pristine"
@@ -14,7 +14,8 @@
       
       <div class="form-group">
         <label for="description">Description</label>
-        <input type="text" class="form-control" id="description" required
+        <input type="text" class="form-control" id="description" placeholder="Description"
+        required
         [(ngModel)]="place.description" name="description" #description="ngModel">
         <div [hidden]="description.valid || description.pristine"
              class="alert alert-danger">
@@ -24,7 +25,7 @@
 
       <div class="form-group">
         <label for="latitude">Latitude</label>
-        <input type="text" class="form-control" id="latitude" placeholder="Place's Latitude"
+        <input type="text" class="form-control" id="latitude" placeholder="Latitude"
         required
         [(ngModel)]="place.latitude" name="latitude" #latitude="ngModel">
         <div [hidden]="latitude.valid || latitude.pristine"
@@ -35,7 +36,7 @@
 
       <div class="form-group">
         <label for="longitude">Longitude</label>
-        <input type="text" class="form-control" id="longitude" placeholder="Place's Longitude"
+        <input type="text" class="form-control" id="longitude" placeholder="Longitude"
         required
         [(ngModel)]="place.longitude" name="longitude" #longitude="ngModel">
         <div [hidden]="longitude.valid || longitude.pristine"
