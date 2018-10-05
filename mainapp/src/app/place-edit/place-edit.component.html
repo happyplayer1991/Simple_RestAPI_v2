@@ -37,7 +37,7 @@
         <label for="longitude">Longitude</label>
         <input type="text" class="form-control" id="longitude" placeholder="Place's Longitude"
         required
-        [(ngModel)]="longitude.description" name="longitude" #longitude="ngModel">
+        [(ngModel)]="place.longitude" name="longitude" #longitude="ngModel">
         <div [hidden]="longitude.valid || longitude.pristine"
              class="alert alert-danger">
              Longitude is required
