@@ -13,6 +13,7 @@ export class PlaceAddComponent {
 
   place = new Place();
   submitted = false;
+  message: string;
 
   constructor(
     private placeService: PlaceService,
@@ -36,7 +37,7 @@ export class PlaceAddComponent {
   private save(): void {
     console.log(this.place);
     this.placeService.addPlace(this.place)
-        .subscribe();
+        .subscribe(result => this.message = "Place Created Successfully!");
   }
 
 }
