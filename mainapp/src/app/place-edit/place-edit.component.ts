@@ -36,9 +36,11 @@ export class PlaceEditComponent implements OnInit {
   }
 
   delete(): void {
-    this.submitted = true;
-    this.placeService.deletePlace(this.place.locationName)
-        .subscribe(result => this.message = "Place Deleted Successfully!");
+    if(confirm("Are you sure to delete?")) {
+      this.submitted = true;
+      this.placeService.deletePlace(this.place.locationName)
+          .subscribe(result => this.message = "Place Deleted Successfully!");
+      }
   }
 
   goBack(): void {
