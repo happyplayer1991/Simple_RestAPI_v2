@@ -4,18 +4,13 @@ const Place = require('../model/place.model');
 
 // *** Add new location *** //
 exports.create = (req, res) => {
-    Place.create({
-        "locationName": req.body.locationName, 
-        "description":  req.body.description, 
-        "latitude":     req.body.latitude,
-        "longitude":    req.body.longitude
-        }).then(place => {		
-        // Send created place to client
+    Place.create(req.body, function (err, place) {
+        if (err) {
+            console.log(err);
+            res.status(500).json({msg: "error", details: err});
+        }
         res.json(place);
-    }).catch(err => {
-        console.log(err);
-        res.status(500).json({msg: "error", details: err});
-    });	
+    });
 };
  
 // *** Return List of Places *** //
