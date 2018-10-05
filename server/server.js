@@ -65,20 +65,37 @@ module.exports.loadModel = function () {
 module.exports.seed = function () {
  
     let places = [
-      {
-        locationName: "Place1",
-        description: "Place1",
-        latitude: '36.7',
-        longitude: '45.8'
-      },
-      {
-        locationName: "Place2",
-        description: "Place2",
-        latitude: '83.1',
-        longitude: '11.2'
-      },
-    ]
-   
+        {
+          locationName: "Vancouver",
+          description: "City of Canada",
+          latitude: '49.2827',
+          longitude: '123.1207'
+        },
+        {
+          locationName: "Kiev",
+          description: "City of Ukraine",
+          latitude: '50.4501',
+          longitude: '30.5234'
+        },
+        {
+          locationName: "Berlin",
+          description: "City of Germany",
+          latitude: '52.5200',
+          longitude: '13.4050'
+        },
+        {
+          locationName: "New York City",
+          description: "City of United States",
+          latitude: '40.7128',
+          longitude: '74.0060'
+        },
+        {
+          locationName: "Tokyo",
+          description: "City of Japan",
+          latitude: '35.6895',
+          longitude: '139.6917'
+        }
+      ]
     // Init data -> save to MongoDB
     const Place = require('./model/place.model');
     
