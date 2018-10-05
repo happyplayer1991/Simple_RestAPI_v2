@@ -17,13 +17,10 @@ export class PlaceComponent implements OnInit {
   }
 
   getPlaces() {
-    return this.placeService.getPlaces()
-               .subscribe(
-                 places => {
-                  console.log(places);
-                  this.places = places
-                 }
-                );
+    return this.placeService.getPlaces().subscribe(places => {this.places = places});
   }
 
+  parseInt(string) {
+    return parseInt(string);
+  }
 }

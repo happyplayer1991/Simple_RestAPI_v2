@@ -95,7 +95,7 @@ module.exports.seed = function () {
           latitude: '35.6895',
           longitude: '139.6917'
         }
-      ]
+      ];
     // Init data -> save to MongoDB
     const Place = require('./model/place.model');
     

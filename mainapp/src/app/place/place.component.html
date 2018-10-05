@@ -1,30 +1,48 @@
 <h5>All Places</h5>
 
-  <table id="places" class="table-bordered responsive-table">
-      <thead>
+  <table class="table table-striped" [mfData]="places" #mf="mfDataTable" [mfRowsOnPage]="5">
+    <thead>
         <tr>
-            <th scope="col" class="text-center id">ID</th>
-            <th scope="col" class="text-center">locationName</th>
-            <th scope="col" class="text-center">description</th>
-            <th scope="col" class="text-center">latitude</th>
-            <th scope="col" class="text-center">longitude</th>
+            <!-- <th scope="col" class="text-center id">ID</th> -->
+            <th scope="col" class="text-center">
+                <mfDefaultSorter by="locationName">LocationName</mfDefaultSorter>
+            </th>
+            <th scope="col" class="text-center">
+                <mfDefaultSorter by="description">Description</mfDefaultSorter>
+            </th>
+            <th scope="col" class="text-center">
+                <mfDefaultSorter by="latitude">Latitude</mfDefaultSorter>
+            </th>
+            <th scope="col" class="text-center">
+                <mfDefaultSorter by="longitude">Longitude</mfDefaultSorter>
+            </th>
+            <th scope="col" class="text-center">Action</th>
         </tr>
-      </thead>
-      <tbody id="places">
-          <tr *ngFor="let place of places ">
-            <td scope="col" class="text-center">{{place.id}}</td>
-            <td scope="col" class="text-center">{{place.locationName}}</td>
-            <td scope="col" class="text-center">{{place.description}}</td>
-            <td scope="col" class="text-center">{{place.latitude}}</td>
-            <td scope="col" class="text-center">{{place.longitude}}</td>
+    </thead>
+    <tbody>
+        <tr *ngFor="let place of mf.data | keyvalue">
+            <!-- <tr *ngFor="let place of mf.data | keyvalue"> -->
+            <!-- <td scope="col" class="text-center">{{ parseInt(place.key) + 1 }}</td> -->
+            <td scope="col" class="text-center">{{place.value.locationName}}</td>
+            <td scope="col" class="text-center">{{place.value.description}}</td>
+            <td scope="col" class="text-center">{{place.value.latitude}}</td>
+            <td scope="col" class="text-center">{{place.value.longitude}}</td>
 
             <td scope="col" class="text-center">
-                <a [routerLink]="['/places', place.id]">
-                  <span class="badge badge-success">Edit</span>
+                <a [routerLink]="['/places', place.value.locationName]">
+                    <span class="badge badge-success">Edit</span>
                 </a>
             </td>
-          </tr>
-      </tbody>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="4">
+                <mfBootstrapPaginator ></mfBootstrapPaginator>
+                <!-- <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator> -->
+            </td>
+        </tr>
+    </tfoot>
   </table>
 
 

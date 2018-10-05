@@ -12,6 +12,9 @@ import { PlaceAddComponent } from './place-add/place-add.component';
 import { PlaceEditComponent } from './place-edit/place-edit.component';
 import { PlaceComponent } from './place/place.component';
 
+// *** Angular 6 Datatable *** //
+import {DataTableModule} from "angular-6-datatable";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +26,8 @@ import { PlaceComponent } from './place/place.component';
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    DataTableModule // Angular 6 Datatable
   ],
   providers: [],
   bootstrap: [AppComponent]
