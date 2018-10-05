@@ -30,14 +30,12 @@ export class PlaceService {
     return this.http.post<Place>(this.placesUrl, Place, httpOptions);
   }
 
-  deletePlace (Place: Place | number): Observable<Place> {
-    const id = typeof Place === 'number' ? Place : Place.id;
-    const url = `${this.placesUrl}/${id}`;
-
-    return this.http.delete<Place>(url, httpOptions);
-  }
-
   updatePlace (Place: Place): Observable<any> {
     return this.http.put(this.placesUrl, Place, httpOptions);
+  }
+
+  deletePlace (location: string ): Observable<{}> {
+    const url = `${this.placesUrl}/${location}`;
+    return this.http.delete(url, httpOptions);
   }
 }

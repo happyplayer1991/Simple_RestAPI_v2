@@ -33,7 +33,7 @@ exports.findByLocation = (req, res) => {
         res.status(500).json({msg: "error", details: err});
     });
 };
- 
+
 // *** Update the record/item *** //
 exports.update = (req, res) => {
     var _id = req.body._id;
@@ -48,12 +48,13 @@ exports.update = (req, res) => {
 
 // *** Delete a location *** //
 exports.delete = (req, res) => {
-	Place.destroy({
-			where: { id: req.params.id }
-		}).then(() => {
-			res.status(200).json( { msg: 'Deleted Successfully -> Place Id = ' + id } );
-		}).catch(err => {
-			console.log(err);
-			res.status(500).json({msg: "error", details: err});
-		});
+    var locationName = req.params.location;
+    console.log(req.params);
+    Place.deleteOne({'locationName': locationName}).then(result => {
+        console.log(result);
+        res.json({msg: "Deleted Successfully" });
+    }).catch(err => {
+        console.log(err);
+        res.status(500).json({msg: "error", details: err});
+    });
 };

@@ -17,5 +17,5 @@ module.exports = function(app) {
     app.put('/api/places', places.update);
  
     // *** Delete a location *** //
-    app.delete('/api/places/:id', places.delete);
+    app.delete('/api/places/:location', places.delete);
 }
