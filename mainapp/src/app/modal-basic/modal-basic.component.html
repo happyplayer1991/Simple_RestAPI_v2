@@ -1,0 +1,49 @@
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Search Place</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="form-group">
+        <label for="location">Location: </label>
+        <div class="input-group">
+          <input type="text" class="form-control" id="locationName" placeholder="Location" 
+          [(ngModel)]="locationName" name="locationName">
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label for="description">Description: </label>
+        <div class="input-group">
+            <input type="text" class="form-control" id="description" placeholder="Description" 
+            [(ngModel)]="description" name="description">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="latitude">Latitude: </label>
+        <div class="input-group">
+            <input type="text" class="form-control" id="latitude" placeholder="Latitude" 
+            [(ngModel)]="latitude" name="latitude">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="longitude">Longitude: </label>
+        <div class="input-group">
+            <input type="text" class="form-control" id="longitude" placeholder="Longitude" 
+            [(ngModel)]="longitude" name="longitude">
+        </div>
+      </div>
+
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-primary" (click)="modal.close('')">Search</button>
+  </div>
+</ng-template> 
+
+<button class="btn btn-sm btn-outline-primary" (click)="open(content)"><i class="fa fa-search"></i> Search</button>

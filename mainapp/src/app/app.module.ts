@@ -15,19 +15,24 @@ import { PlaceComponent } from './place/place.component';
 // *** Angular 6 Datatable *** //
 import {DataTableModule} from "angular-6-datatable";
 
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { ModalBasicComponent } from './modal-basic/modal-basic.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     PlaceAddComponent,
     PlaceEditComponent,
-    PlaceComponent
+    PlaceComponent,
+    ModalBasicComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
-    DataTableModule // Angular 6 Datatable
+    DataTableModule, // Angular 6 Datatable
+    NgbModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
