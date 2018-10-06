@@ -20,10 +20,8 @@ export class PlaceComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    console.log('start');
     // *** recive data *** //
     this.placeService.myMethod$.subscribe((data) => {
-      console.log('subscribe - data');
       this.data = data; // And he have data here too!
 
       // ** get query string from place ** //
