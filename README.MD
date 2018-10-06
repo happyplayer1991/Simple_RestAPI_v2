@@ -20,11 +20,12 @@
    * There are latitude and longitude data so we can use 😊google map😊 for show location to improve this application.
    * I have idea
 4. How could our simple API be turned into something cool?
-   * I built strutured REST APIs in node server.
-     main routes: 'server/routes/place.route.js'           -> RESTFUL API routing
-     controller:  'server/controller/place.controller.js'   -> RESTFUL API functions
-     model:       'server/model/place.model.js'            -> Use `places' mongoose model for RESTFUL API  
-   * I built Angular application with well documented code.
+   - I built strutured REST APIs in node server.
+     * main routes: 'server/routes/place.route.js'           -> RESTFUL API routing
+     * controller:  'server/controller/place.controller.js'   -> RESTFUL API functions
+     * model:       'server/model/place.model.js'            -> Use `places' mongoose model for RESTFUL API  
+     * Added seed() function that insert seed data in mongoDB
+   - I built Angular application with well documented code.
 
 😊Thanks.😊
     
