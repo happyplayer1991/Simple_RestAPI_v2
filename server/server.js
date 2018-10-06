@@ -65,34 +65,52 @@ module.exports.seed = function () {
  
     let places = [
         {
-          locationName: "Vancouver",
-          description: "City of Canada",
-          latitude: '49.2827',
-          longitude: '123.1207'
+            locationName: "Vancouver",
+            description: "City of Canada",
+            latitude: '49.2827',
+            longitude: '123.1207'
         },
         {
-          locationName: "Kiev",
-          description: "City of Ukraine",
-          latitude: '50.4501',
-          longitude: '30.5234'
+            locationName: "Kiev",
+            description: "City of Ukraine",
+            latitude: '50.4501',
+            longitude: '30.5234'
         },
         {
-          locationName: "Berlin",
-          description: "City of Germany",
-          latitude: '52.5200',
-          longitude: '13.4050'
+            locationName: "Berlin",
+            description: "Capital of Germany",
+            latitude: '52.5200',
+            longitude: '13.4050'
         },
         {
-          locationName: "New York City",
-          description: "City of United States",
-          latitude: '40.7128',
-          longitude: '74.0060'
+            locationName: "New York City",
+            description: "City of United States",
+            latitude: '40.7128',
+            longitude: '74.0060'
         },
         {
-          locationName: "Tokyo",
-          description: "City of Japan",
-          latitude: '35.6895',
-          longitude: '139.6917'
+            locationName: "Tokyo",
+            description: "Capital of Japan",
+            latitude: '35.6895',
+            longitude: '139.6917'
+        },
+        {
+            locationName: "Moscow",
+            description: "Capital of Russia",
+            latitude: '55.7558',
+            longitude: '37.6173'
+        },
+        {
+            locationName: "London",
+            description: "Capital of England",
+            latitude: '51.5074',
+            longitude: '0.1278'
+        },
+        {
+            locationName: "Beijing",
+            description: "Capital of China",
+            latitude: '39.9042',
+            longitude: '116.4074'
         }
       ];
     // Init data -> save to MongoDB
