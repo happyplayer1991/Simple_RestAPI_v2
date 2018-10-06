@@ -13,14 +13,22 @@ import { query } from '@angular/core/src/render3/query';
 export class PlaceComponent implements OnInit {
   places: Place[];
 
+  public data = {}; // receive place data
   constructor(
     private placeService: PlaceService,
     private router: Router
   ) {}
 
   ngOnInit(): void {
-    var query_string = 'locationName=Vancouver&description=City%20of%20Canada&latitude=49.2827&longitude=123.1207';
-    this.getPlaces(query_string);
+    // *** recive data *** //
+    this.placeService.myMethod$.subscribe((data) => {
+      this.data = data; // And he have data here too!
+      console.log('123');
+      var place = this.data[0];
+      var query_string = `locationName=${place.locationName}&description=${place.description}&latitude=${place.latitude}&longitude=${place.longitude}`;
+      console.log(query_string);
+      this.getPlaces(query_string);
+    });
   }
 
   getPlaces(query_string) {

@@ -20,6 +20,8 @@ export class ModalBasicComponent  {
   latitude: string;
   longitude: string;
   
+  public place_data: Array<any> = []; // save place data
+
   constructor(
     private modalService: NgbModal,
     private router: Router,
@@ -29,6 +31,17 @@ export class ModalBasicComponent  {
   open(content) { 
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
+      
+      // ** Add place data ** //
+      this.place_data.push({
+        locationName: this.locationName,
+        description: this.description,
+        latitude: this.latitude,
+        longitude: this.longitude
+      });
+      // ** save place data ** //
+      this.placeService.myMethod(this.place_data);
+
       this.router.navigate(['/']); // redirct to main page
     }, (reason) => {
       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;

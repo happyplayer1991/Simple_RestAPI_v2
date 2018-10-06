@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { Place } from './place';
 
 const httpOptions = {
@@ -11,10 +11,14 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class PlaceService {
+  // *** shared data between 2 components *** //
+  myMethod$: Observable<any>;
+  private myMethodSubject = new Subject<any>();
+
   private placesUrl = 'http://localhost:8080/api/places';  // URL to web api
-  constructor( 
-    private http: HttpClient
-  ) { }
+  constructor(private http: HttpClient) { 
+    this.myMethod$ = this.myMethodSubject.asObservable();
+  }
 
   getPlaces (query: string): Observable<Place[]> {
     return this.http.get<Place[]>(this.placesUrl + '?' + query);
@@ -36,5 +40,9 @@ export class PlaceService {
   deletePlace (location: string ): Observable<{}> {
     const url = `${this.placesUrl}/${location}`;
     return this.http.delete(url, httpOptions);
+  }
+
+  myMethod(data) {
+    this.myMethodSubject.next(data);
   }
 }
