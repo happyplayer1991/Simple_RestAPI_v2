@@ -29,7 +29,6 @@ export class ModalBasicComponent  {
   open(content) { 
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
-      this.
       this.router.navigate(['/']); // redirct to main page
     }, (reason) => {
       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;

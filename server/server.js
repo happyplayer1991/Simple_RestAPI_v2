@@ -11,7 +11,6 @@ var mongoose = require('mongoose');
 var chalk = require('chalk');
 
 
-
 /**
  * config Middleware
  */
@@ -114,7 +113,7 @@ module.exports.connectMongoDB = function () {
             console.log(chalk.green('Connected MongoDB successfully'));
         
             // *** insert seed data **/
-            this.seed();
+            // this.seed();
         }
     });
 

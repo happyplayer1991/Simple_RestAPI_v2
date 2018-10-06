@@ -11,14 +11,13 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class PlaceService {
-
   private placesUrl = 'http://localhost:8080/api/places';  // URL to web api
   constructor( 
     private http: HttpClient
   ) { }
 
-  getPlaces (): Observable<Place[]> {
-    return this.http.get<Place[]>(this.placesUrl)
+  getPlaces (query: string): Observable<Place[]> {
+    return this.http.get<Place[]>(this.placesUrl + '?' + query);
   }
 
   getPlace(location: string): Observable<Place> {

@@ -1,5 +1,7 @@
 'use strict';
 
+var url = require('url');
+
 const Place = require('../model/place.model');
 
 // *** Add new location *** //
@@ -15,7 +17,14 @@ exports.create = (req, res) => {
  
 // *** Return List of Places *** //
 exports.findAll = (req, res) => {
-    Place.find().then(places => {
+
+    // ** Get variables on url ** //
+    var url_parts = url.parse(req.url, true);
+    var query = url_parts.query;
+    console.log(query);
+
+    Place.find(query).then(places => {
+        console.log(places);
         res.json(places);
     }).catch(err => {
         console.log(err);
