@@ -21,11 +21,15 @@ export class PlaceComponent implements OnInit {
 
   ngOnInit(): void {
     // *** recive data *** //
+    console.log(this.placeService.myMethod$);
+
     this.placeService.myMethod$.subscribe((data) => {
+      console.log(this.placeService.myMethod$);
       this.data = data; // And he have data here too!
-      console.log('123');
-      var place = this.data[0];
-      var query_string = `locationName=${place.locationName}&description=${place.description}&latitude=${place.latitude}&longitude=${place.longitude}`;
+
+      // ** get query string from place ** //
+      var query_string = this.getQuery(this.data[0]);
+
       console.log(query_string);
       this.getPlaces(query_string);
     });
@@ -38,4 +42,23 @@ export class PlaceComponent implements OnInit {
   parseInt(string) {
     return parseInt(string);
   }
+
+  /**
+   * Make query from place data
+   */
+  getQuery(place) {
+    var query_string = '';
+
+    if(typeof place.locationName != 'undefined')
+      query_string += `locationName=${(place.locationName)}`;
+    if(typeof place.description != 'undefined')
+      query_string += `description=${(place.description)}`;
+    if(typeof place.latitude != 'undefined')
+      query_string += `latitude=${(place.latitude)}`;
+    if(typeof place.longitude != 'undefined')
+      query_string += `longitude=${(place.longitude)}`;
+
+    return query_string;
+  }
+
 }

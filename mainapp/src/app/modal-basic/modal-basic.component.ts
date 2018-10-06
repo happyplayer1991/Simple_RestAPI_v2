@@ -30,9 +30,10 @@ export class ModalBasicComponent  {
 
   open(content) { 
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
-      this.closeResult = `Closed with: ${result}`;
+      // this.closeResult = `Closed with: ${result}`;
       
       // ** Add place data ** //
+      this.place_data = [];
       this.place_data.push({
         locationName: this.locationName,
         description: this.description,
@@ -44,7 +45,7 @@ export class ModalBasicComponent  {
 
       this.router.navigate(['/']); // redirct to main page
     }, (reason) => {
-      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+      // this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
     });
   }
 
