@@ -17,9 +17,13 @@
 2. Did you enjoy this assignment? Why or Why not?     
    * Yes, I 😊enjoy😊 because I am ⭐well versed⭐ in RESTFUL API.
 3. What would you do to improve this small application?
-   * There are latitude and longitude data so I suggest that we can use 😊google map😊 for show location.
+   * There are latitude and longitude data so we can use 😊google map😊 for show location to improve this application.
+   * I have idea
 4. How could our simple API be turned into something cool?
-   * I built strutured REST APIs in node server with high quality code.
+   * I built strutured REST APIs in node server.
+     main routes: 'server/routes/place.route.js'           -> RESTFUL API routing
+     controller:  'server/controller/place.controller.js'   -> RESTFUL API functions
+     model:       'server/model/place.model.js'            -> Use `places' mongoose model for RESTFUL API  
    * I built Angular application with well documented code.
 
 😊Thanks.😊
